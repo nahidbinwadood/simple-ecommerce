@@ -1,6 +1,6 @@
 import { Footer } from '@/components/shared/footer';
 import { Header } from '@/components/shared/header/header';
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const MainLayout = ({
   children,
@@ -8,11 +8,11 @@ const MainLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <main>
+    <Fragment>
       <Header />
-      {children}
+      <main>{children}</main>
       <Footer />
-    </main>
+    </Fragment>
   );
 };
 

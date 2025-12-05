@@ -1,11 +1,14 @@
-import React from 'react';
+ 
+import ProductListing from './_components/all-products/product-listing';
+import CategorySection from './_components/category-section';
 
 const page = () => {
-    return (
-        <div className='min-h-screen bg-primary text-white'>
-           <h1>Hello from the homepage</h1> 
-        </div>
-    );
+  return (
+    <section className="container mx-auto">
+      <CategorySection />
+      <ProductListing/>
+    </section>
+  );
 };
 
 export default page;

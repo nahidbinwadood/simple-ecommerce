@@ -6,23 +6,19 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Input } from '@/components/ui/input';
+ 
 import {
   ChevronDown,
   Headphones,
-  Heart,
+ 
   Info,
   MapPin,
   Menu,
   Phone,
   Repeat,
-  Search,
-  ShoppingCart,
-  User,
+ 
 } from 'lucide-react';
-import Link from 'next/link';
-import { useState } from 'react';
-import { Icons } from '../icons';
+ 
 import HederTopSection from './header-top-section';
 import HeaderBottomSection from './header-bottom-section';
 
@@ -30,7 +26,7 @@ export function Header() {
  
 
   return (
-    <header className="w-full sticky top-0">
+    <header className="w-full sticky top-0 z-50">
       {/* top section */}
      <HederTopSection/>
 

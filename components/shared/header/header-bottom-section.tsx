@@ -1,7 +1,8 @@
 import { Input } from '@/components/ui/input';
-import { Search, ShoppingCart, User } from 'lucide-react';
+import {   ShoppingCart,   } from 'lucide-react';
 import { useState } from 'react';
 import { Icons } from '../icons';
+import Link from 'next/link';
 
 const HeaderBottomSection = () => {
   const [cartCount, setCartCount] = useState<number>(2);
@@ -9,20 +10,20 @@ const HeaderBottomSection = () => {
     <div className="bg-[#1B6392] border-t border-white/20">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4 gap-8">
-          <div className="flex items-center gap-2">
+          <Link href='/' className="flex items-center gap-2">
             <Icons.logo />
             <span className="text-white text-2xl font-bold">CLICON</span>
-          </div>
+          </Link>
 
           <div className="flex-1 max-w-2xl">
             <div className="relative">
               <Input
                 type="text"
                 placeholder="Search for anything..."
-                className="w-full h-11 pl-4 pr-12 rounded-sm border-0 focus-visible:ring-2 focus-visible:ring-white/20"
+                className="w-full h-11 pl-4 pr-12 rounded-[2px] border-0 focus-visible:ring-2 focus-visible:ring-white/20 bg-white"
               />
-              <button className="absolute right-0 top-0 h-11 px-6 bg-[#FF8A00] text-white hover:bg-[#FF8A00]/90 transition-colors rounded-r-sm">
-                <Search className="w-5 h-5" />
+              <button className="absolute right-5 top-0 h-11 cursor-pointer">
+                <Icons.magnifyingGlass />
               </button>
             </div>
           </div>
