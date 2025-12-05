@@ -1,28 +1,51 @@
 // productSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Product, ProductFilters, ProductState } from './types';
+
+export interface Product {
+  id: number;
+  name: string;
+  price: number;
+  rating: number;
+  category: string;
+  image: string;
+}
+
+export interface ProductFilters {
+  categories: string[];
+  searchQuery: string;
+  priceRange: {
+    min: number;
+    max: number;
+  };
+  sortBy: string;
+}
+
+export interface ProductState {
+  allProducts: Product[];
+  filteredProducts: Product[];
+  filters: ProductFilters;
+}
 
 const initialState: ProductState = {
   allProducts: [],
   filteredProducts: [],
   filters: {
-    category: 'All',
+    categories: [],
     searchQuery: '',
     priceRange: {
       min: 0,
-      max: 1000,
+      max: 2000,
     },
+    sortBy: 'popular',
   },
 };
 
-const applyFilters = (
-  products: Product[],
-  filters: ProductFilters
-): Product[] => {
-  return products.filter((product) => {
-    // Category filter
+const applyFilters = (products: Product[], filters: ProductFilters): Product[] => {
+  let filtered = products.filter((product) => {
+    // Category filter - if no categories selected, show all
     const categoryMatch =
-      filters.category === 'All' || product.category === filters.category;
+      filters.categories.length === 0 ||
+      filters.categories.includes(product.category);
 
     // Search filter
     const searchMatch =
@@ -36,6 +59,25 @@ const applyFilters = (
 
     return categoryMatch && searchMatch && priceMatch;
   });
+
+  // Apply sorting
+  switch (filters.sortBy) {
+    case 'price-low':
+      filtered.sort((a, b) => a.price - b.price);
+      break;
+    case 'price-high':
+      filtered.sort((a, b) => b.price - a.price);
+      break;
+    case 'rating':
+      filtered.sort((a, b) => b.rating - a.rating);
+      break;
+    case 'popular':
+    default:
+      // Keep original order for "most popular"
+      break;
+  }
+
+  return filtered;
 };
 
 const productSlice = createSlice({
@@ -46,8 +88,22 @@ const productSlice = createSlice({
       state.allProducts = action.payload;
       state.filteredProducts = applyFilters(action.payload, state.filters);
     },
-    setCategory: (state, action: PayloadAction<string>) => {
-      state.filters.category = action.payload;
+    toggleCategory: (state, action: PayloadAction<string>) => {
+      const category = action.payload;
+      const index = state.filters.categories.indexOf(category);
+      
+      if (index > -1) {
+        // Remove category if already selected
+        state.filters.categories.splice(index, 1);
+      } else {
+        // Add category if not selected
+        state.filters.categories.push(category);
+      }
+      
+      state.filteredProducts = applyFilters(state.allProducts, state.filters);
+    },
+    setCategories: (state, action: PayloadAction<string[]>) => {
+      state.filters.categories = action.payload;
       state.filteredProducts = applyFilters(state.allProducts, state.filters);
     },
     setSearchQuery: (state, action: PayloadAction<string>) => {
@@ -61,6 +117,10 @@ const productSlice = createSlice({
       state.filters.priceRange = action.payload;
       state.filteredProducts = applyFilters(state.allProducts, state.filters);
     },
+    setSortBy: (state, action: PayloadAction<string>) => {
+      state.filters.sortBy = action.payload;
+      state.filteredProducts = applyFilters(state.allProducts, state.filters);
+    },
     resetFilters: (state) => {
       state.filters = initialState.filters;
       state.filteredProducts = state.allProducts;
@@ -70,9 +130,11 @@ const productSlice = createSlice({
 
 export const {
   setProducts,
-  setCategory,
+  toggleCategory,
+  setCategories,
   setSearchQuery,
   setPriceRange,
+  setSortBy,
   resetFilters,
 } = productSlice.actions;
 
