@@ -27,6 +27,8 @@ const TopFilterSection = () => {
     return () => clearTimeout(handler);
   }, [localSearch, dispatch]);
 
+  
+
   const handleSortChange = (value: string) => {
     dispatch(setSortBy(value));
   };

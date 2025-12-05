@@ -43,8 +43,11 @@ const FilterResultsSection = () => {
 
   const priceRangeLabel = getPriceRangeLabel();
 
+  if (!hasActiveFilters) return
+
+  // show the filters if select any filter==>
   return (
-    <div className="mb-6 flex items-center justify-between">
+    <div className="mb-6 flex items-center justify-between bg-[#F2F4F5] px-6 py-3">
       <div className="flex items-center gap-2 flex-wrap">
         <span className="text-sm text-gray-600">Active Filters:</span>
 
@@ -105,10 +108,8 @@ const FilterResultsSection = () => {
           </Button>
         )}
 
-        {/* No Active Filters Message */}
-        {!hasActiveFilters && (
-          <span className="text-sm text-gray-400 italic">None</span>
-        )}
+
+
       </div>
 
       {/* Results Count */}

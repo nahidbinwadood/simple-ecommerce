@@ -15,6 +15,8 @@ const ProductsSection = () => {
       .then((res) => res.json())
       .then((data) => dispatch(setProducts(data)));
   }, [dispatch]);
+
+  
   return (
     <section className="flex-1">
       {/* Search and Filter Bar */}
