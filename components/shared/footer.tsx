@@ -40,7 +40,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white border-t-4 border-[#1B6392]">
+    <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 py-12">
           <div className="space-y-4">
@@ -142,7 +142,7 @@ export function Footer() {
 
         <div className="border-t border-gray-800 py-6">
           <p className="text-center text-sm text-gray-500">
-            Clicon eCommerce Template © 2021. Design by Templatecookie
+            Kinbo - eCommerce Template © 2021. Design by Templatecookie
           </p>
         </div>
       </div>

@@ -13,8 +13,8 @@ import Link from 'next/link';
 
 const CategorySection = () => {
   return (
-    <div className="bg-white border-b">
-      <div className="flex items-center justify-between py-3">
+    <div className="bg-white ">
+      <div className="flex items-center justify-between py-4 container mx-auto">
         {/* left side items */}
         <div className="flex items-center gap-6">
           <DropdownMenu>

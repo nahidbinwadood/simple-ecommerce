@@ -1,12 +1,15 @@
  
-import ProductListing from './_components/all-products/product-listing';
+import AllProductsSectionMainWrapper from './_components/all-products/all-products-section-main-wrapper';
 import CategorySection from './_components/category-section';
 
 const page = () => {
   return (
-    <section className="container mx-auto">
+    <section className="">
       <CategorySection />
-      <ProductListing/>
+
+      {/* All Products section */}
+      <AllProductsSectionMainWrapper/>
+      
     </section>
   );
 };

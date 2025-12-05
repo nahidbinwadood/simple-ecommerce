@@ -1,3 +1,4 @@
+import { Providers } from '@/components/providers/providers';
 import { Footer } from '@/components/shared/footer';
 import { Header } from '@/components/shared/header/header';
 import React, { Fragment } from 'react';
@@ -10,7 +11,11 @@ const MainLayout = ({
   return (
     <Fragment>
       <Header />
-      <main>{children}</main>
+      <main>
+        <Providers>
+        {children}
+        </Providers>
+        </main>
       <Footer />
     </Fragment>
   );
