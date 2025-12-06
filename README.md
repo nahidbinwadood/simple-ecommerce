@@ -55,15 +55,29 @@ A modern, simple e-commerce landing page built with Next.js 16, TypeScript, and 
 ```bash
 # Clone the repository
 git clone https://github.com/nahidbinwadood/simple-ecommerce.git
+```
 
 # Navigate to project directory
+
+```
 cd simple-ecommerce
 
+```
+
 # Install dependencies
+
+```
 npm install
+
+```
+
 # or
+
+```
 yarn install
+```
 # or
+```
 pnpm install
 ```
 
