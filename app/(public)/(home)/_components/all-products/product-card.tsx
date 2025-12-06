@@ -1,5 +1,3 @@
-
- 
 import { Product } from '@/lib/features/products/products-slice';
 import { Eye, Heart, ShoppingCart, Star } from 'lucide-react';
 import Image from 'next/image';
@@ -11,28 +9,30 @@ const ProductCard = ({ product }: { product: Product }) => {
       key={product.id}
       className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white transition-shadow hover:shadow-lg"
     >
-      <div className="relative aspect-square overflow-hidden bg-gray-50 p-4">
-        <div className="flex h-full items-center justify-center">
+      <div className=" aspect-square overflow-hidden bg-gray-50 p-4">
+        <div className="flex h-full items-center justify-center relative">
           <Image
             alt={product?.name}
             src={product?.image}
             height={220}
             width={300}
           />
+          <div className="absolute inset-0 h-full w-full opacity-0 transition-opacity group-hover:opacity-100 bg-black/20 flex items-center justify-center">
+            <div className="flex gap-2">
+              <button className="flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-md hover:bg-orange-500 hover:text-white transition-colors cursor-pointer">
+                <Heart className="h-4 w-4" />
+              </button>
+              <button className="flex h-9 w-9 items-center justify-center rounded-full bg-orange-500 text-white shadow-md hover:bg-orange-600 transition-colors cursor-pointer">
+                <ShoppingCart className="h-4 w-4" />
+              </button>
+              <button className="flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-md hover:bg-orange-500 hover:text-white transition-colors cursor-pointer">
+                <Eye className="h-4 w-4" />
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Hover Actions */}
-        <div className="absolute bottom-3 right-3 flex flex-col gap-2 opacity-0 transition-opacity group-hover:opacity-100">
-          <button className="flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-md hover:bg-orange-500 hover:text-white transition-colors">
-            <Heart className="h-4 w-4" />
-          </button>
-          <button className="flex h-9 w-9 items-center justify-center rounded-full bg-orange-500 text-white shadow-md hover:bg-orange-600 transition-colors">
-            <ShoppingCart className="h-4 w-4" />
-          </button>
-          <button className="flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-md hover:bg-orange-500 hover:text-white transition-colors">
-            <Eye className="h-4 w-4" />
-          </button>
-        </div>
       </div>
 
       <div className="p-4">

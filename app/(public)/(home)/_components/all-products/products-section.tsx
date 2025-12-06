@@ -7,7 +7,7 @@ import FilterResultsSection from './filter-results-section';
 
 const ProductsSection = () => {
   const dispatch = useAppDispatch();
-  const { filteredProducts, } = useAppSelector((state) => state.products);
+  const { filteredProducts } = useAppSelector((state) => state.products);
 
   useEffect(() => {
     // Load products from JSON
@@ -16,18 +16,17 @@ const ProductsSection = () => {
       .then((data) => dispatch(setProducts(data)));
   }, [dispatch]);
 
-  
   return (
     <section className="flex-1">
       {/* Search and Filter Bar */}
       <TopFilterSection />
 
       {/* Results and Active Filters */}
-      <FilterResultsSection/>
+      <FilterResultsSection />
 
       {/* Product Grid */}
       <div className="grid grid-cols-4 gap-5">
-        {filteredProducts.map((product:Product) => (
+        {filteredProducts.map((product: Product) => (
           <ProductCard key={product?.id} product={product} />
         ))}
       </div>
