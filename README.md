@@ -1,8 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# E-commerce Product Listing Platform
+
+A modern, simple e-commerce landing page built with Next.js 16, TypeScript, and Redux for state management. Features advanced product filtering, sorting, and search capabilities.
+
+## Features
+
+- **Responsive Layout**: Fully responsive design with header, navbar, and footer
+- **Product Filtering**: Advanced filtering system with:
+  - Category-based filtering
+  - Tag-based filtering
+  - Price range selection
+- **Product Sorting**: Multiple sorting options for product display
+- **Search Functionality**: Real-time product search
+- **Breadcrumb Navigation**: Easy navigation tracking
+- **State Management**: Redux for efficient state handling
+- **Type Safety**: Full TypeScript implementation
+
+## Tech Stack
+
+- **Framework**: Next.js 16
+- **Language**: TypeScript
+- **State Management**: Redux
+- **Styling**: [Add your styling solution here - CSS Modules/Tailwind/Styled Components]
+
+## Project Structure
+
+``
+├── components/
+│   ├── Header/
+│   ├── Navbar/
+│   ├── Footer/
+│   ├── Breadcrumb/
+│   ├── ProductList/
+│   ├── FilterAside/
+│   └── SearchSort/
+├── redux/
+│   ├── store.ts
+│   ├── slices/
+│   │   └── productSlice.ts
+├── pages/
+│   └── index.tsx
+└── types/
+    └── product.ts
+``
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn or pnpm
+
+### Installation
+
+```bash
+# Clone the repository
+git clone [your-repo-url]
+
+# Navigate to project directory
+cd ecommerce-landing-page
+
+# Install dependencies
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+### Running the Development Server
 
 ```bash
 npm run dev
@@ -10,27 +75,96 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Layout Overview
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Header & Navigation
 
-## Learn More
+- Sticky header with navbar
+- Responsive menu for mobile devices
 
-To learn more about Next.js, take a look at the following resources:
+### Main Content Area
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Breadcrumb**: Shows current navigation path
+- **Filter Sidebar** (Left):
+  - Category filters
+  - Tag filters
+  - Price range slider
+- **Product Display** (Right):
+  - Sort dropdown
+  - Search bar
+  - Product grid/list view
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Footer
 
-## Deploy on Vercel
+- Company information and links
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Redux Store
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The application uses Redux for state management with the following slices:
+
+- `products`: Manages product data, filters, and search
+- [Add other slices if applicable]
+
+## Key Features Implementation
+
+### Filtering System
+
+Products can be filtered by:
+
+- **Categories**: Select single or multiple categories
+- **Tags**: Filter by product tags
+- **Price Range**: Set minimum and maximum price
+
+### Sorting Options
+
+- Price: Low to High
+- Price: High to Low
+- Newest First
+- Best Selling
+- [Add your sorting options]
+
+### Search
+
+Real-time search across product names and descriptions
+
+## Build for Production
+
+```bash
+npm run build
+npm start
+# or
+yarn build
+yarn start
+```
+
+## Future Enhancements
+
+- [ ] Shopping cart functionality
+- [ ] Product detail pages
+- [ ] User authentication
+- [ ] Wishlist feature
+- [ ] Product reviews and ratings
+- [ ] Pagination or infinite scroll
+- [ ] Multi-language support
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+[Add your license here]
+
+## Author
+
+[Your Name]
+
+## Acknowledgments
+
+- Built with Next.js
+- State management powered by Redux
+- TypeScript for type safety
